@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="fonts/avenir-next/stylesheet.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <section class="container">
+        <div class="form-container">
+            <h1 class="form-container__title">Contact Us</h1>
+            <p class="form-container__text">The Voodoo team is looking forward to hearing from you!</p>
+            <form class="form-container__form" action="">
+                <input class="form-container__input" type="text" placeholder="Full Name*">
+                <input class="form-container__input" type="text" placeholder="Title/Position*">
+                <select class="form-container__select" type="text" placeholder="Practice / Institution*">
+                    <option value="opt1">option1</option>
+                    <option value="opt2">option2</option>
+                    <option value="opt3">option3</option>
+                    <option value="opt4">option4</option>
+                </select>
+                <input class="form-container__input" type="text" placeholder="Email Address*">
+                <input class="form-container__input" type="text" placeholder="Phone Number*">
+                <select class="form-container__select" type="text" placeholder="Medical Profession*">
+                    <option value="opt1">option1</option>
+                    <option value="opt2">option2</option>
+                    <option value="opt3">option3</option>
+                    <option value="opt4">option4</option>
+                </select>
+                <select class="form-container__select" type="text" placeholder="Type of Inquiry*">
+                    <option value="opt1">option1</option>
+                    <option value="opt2">option2</option>
+                    <option value="opt3">option3</option>
+                    <option value="opt4">option4</option>
+                </select>
+                <textarea class="form-container__textarea" name="message" placeholder="Enter Message*"></textarea>
+                <button class="form-container__button" type="submit">Send Message</button>
+            </form>
+        </div>
+        <div id="googleMap" style="width:360px;height:570px;"></div>
+    </section>
+    <script>
+        function myMap() {
+            const contentString = '<div">' + '<h2 class="map-info__title">' + 'Voodoo' + '</h2>' +
+                '<p class="map-info__text">' + '137 Glasgow St., Unit 115 Kitchener, ON N2G 4X8 Ukraine' + '</p>' +
+                '</div>' + '<div>' +
+                '<p class="map-info__contacts">' + '1-800-480-9597' + '</p>' +
+                '<p class="map-info__contacts map-info__contacts--mail">' + 'info@voodoo.com' + '</p>' +
+                '</div>'
+
+            const infowindow = new google.maps.InfoWindow({
+                content: contentString,
+                ariaLabel: "Voodoo",
+            })
+            const mapProp = {
+                center: new google.maps.LatLng(50.38502351453557, 30.471247855635337),
+                zoom: 16,
+                disableDefaultUI: true,
+                mapTypeId: 'roadmap',
+                styles: [{
+                    featureType: "poi",
+                    elementType: "labels",
+                    stylers: [
+                        { visibility: "off" }
+                    ]
+                }]
+            };
+            const map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+            const marker = new google.maps.Marker(
+                {
+                    position: mapProp.center,
+                    icon: 'images/Vector.svg',
+                    map,
+                }
+            );
+
+            marker.addListener("click", () => {
+                infowindow.open({
+                    anchor: marker,
+                    map,
+                });
+            });
+
+            infowindow.open({
+                anchor: marker,
+                map,
+            })
+
+            marker.setMap(map);
+        }
+    </script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDp4mypNUkiisiumY6NRcEiE0nOY9EuOO0&callback=myMap"></script>
+</body>
+
+</html>
