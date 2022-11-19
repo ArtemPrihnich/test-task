@@ -15,37 +15,42 @@
 
 <body>
     <section class="container">
-        <div class="form-container">
-            <h1 class="form-container__title">Contact Us</h1>
-            <p class="form-container__text">The Voodoo team is looking forward to hearing from you!</p>
-            <form class="form-container__form" action="">
-                <input class="form-container__input" type="text" placeholder="Full Name*">
-                <input class="form-container__input" type="text" placeholder="Title/Position*">
-                <select class="form-container__select" type="text" placeholder="Practice / Institution*">
-                    <option value="opt1">option1</option>
-                    <option value="opt2">option2</option>
-                    <option value="opt3">option3</option>
-                    <option value="opt4">option4</option>
-                </select>
-                <input class="form-container__input" type="text" placeholder="Email Address*">
-                <input class="form-container__input" type="text" placeholder="Phone Number*">
-                <select class="form-container__select" type="text" placeholder="Medical Profession*">
-                    <option value="opt1">option1</option>
-                    <option value="opt2">option2</option>
-                    <option value="opt3">option3</option>
-                    <option value="opt4">option4</option>
-                </select>
-                <select class="form-container__select" type="text" placeholder="Type of Inquiry*">
-                    <option value="opt1">option1</option>
-                    <option value="opt2">option2</option>
-                    <option value="opt3">option3</option>
-                    <option value="opt4">option4</option>
-                </select>
-                <textarea class="form-container__textarea" name="message" placeholder="Enter Message*"></textarea>
-                <button class="form-container__button" type="submit">Send Message</button>
-            </form>
+        <div class="box">
+            <div class="form-container">
+                <h1 class="form-container__title">Contact Us</h1>
+                <p class="form-container__text">The Voodoo team is looking forward to hearing from you!</p>
+                <form class="form-container__form" action="">
+                    <input class="form-container__input" type="text" required placeholder="Full Name*">
+                    <input class="form-container__input" type="text" required placeholder="Title/Position*">
+                    <select type="text" name="Practice / Institution*">
+                        <option value="opt1">option1</option>
+                        <option value="opt2">option2</option>
+                        <option value="opt3">option3</option>
+                        <option value="opt4">option4</option>
+                    </select>
+                    <input class="form-container__input" type="email" required placeholder="Email Address*">
+                    <input class="form-container__input" type="number" required placeholder="Phone Number*">
+                    <select type="text" name="Medical Profession*">
+                        <option value="opt1">option1</option>
+                        <option value="opt2">option2</option>
+                        <option value="opt3">option3</option>
+                        <option value="opt4">option4</option>
+                    </select>
+                    <select type="text" name="Type of Inquiry*">
+                        <option value="opt1">option1</option>
+                        <option value="opt2">option2</option>
+                        <option value="opt3">option3</option>
+                        <option value="opt4">option4</option>
+                    </select>
+                    <textarea class="form-container__textarea form-container__form--big" required name="message"
+                        placeholder="Enter Message*"></textarea>
+                    <button class="form-container__button" type="submit">Send Message</button>
+                </form>
+            </div>
+            <div class="map-container">
+                <div id="googleMap" style="width:100%;height:100%;"></div>
+            </div>
         </div>
-        <div id="googleMap" style="width:360px;height:570px;"></div>
     </section>
     <script>
         function myMap() {
@@ -100,6 +105,7 @@
     </script>
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDp4mypNUkiisiumY6NRcEiE0nOY9EuOO0&callback=myMap"></script>
+    <script src="js/customSelect.js"></script>
 </body>
 
 </html>
